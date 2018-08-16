@@ -20,7 +20,7 @@ example metronome job config:
 {
   "id": "marathon-rabbit-autoscale",
   "run": {
-    "cmd": "docker pull vidazoohub/marathon-rabbit-autoscale:latest && docker run --rm -e MARATHON_APP=/app_name  -e MIN_TASK_SIZE=5 -e SCALE_EVERY_X_WAITING_MESSAGES=500 -e RABBIT_HOST=your_rabbit_host -e RABBIT_API_PORT=your_rabbit_api_port -e RABBIT_VHOST=your_rabbit_vhost -e RABBIT_PASSWORD=your_rabbit_pass -e RABBIT_USER=your_rabbit_user RABBIT_QUEUE=rabbit_queue_to_scale_by -e MARATHON_URL=leader.mesos -e MARATHON_PORT=8080 vidazoohub/marathon-rabbit-autoscale:latest",
+    "cmd": "docker pull naorlivne/marathon-rabbit-autoscale:latest && docker run --rm -e MARATHON_APP=/app_name  -e MIN_TASK_SIZE=5 -e SCALE_EVERY_X_WAITING_MESSAGES=500 -e RABBIT_HOST=your_rabbit_host -e RABBIT_API_PORT=your_rabbit_api_port -e RABBIT_VHOST=your_rabbit_vhost -e RABBIT_PASSWORD=your_rabbit_pass -e RABBIT_USER=your_rabbit_user RABBIT_QUEUE=rabbit_queue_to_scale_by -e MARATHON_URL=leader.mesos -e MARATHON_PORT=8080 naorlivne/marathon-rabbit-autoscale:latest",
     "cpus": 0.1,
     "mem": 256,
     "disk": 100
