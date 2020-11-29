@@ -2,6 +2,7 @@ import os, requests
 from pyrabbit.api import Client
 
 min_task_size = os.environ["MIN_TASK_SIZE"]
+max_task_size = os.environ["MAX_TASK_SIZE"]
 scale_every_x_waiting_messages = os.environ["SCALE_EVERY_X_WAITING_MESSAGES"]
 rabbit_host = os.environ["RABBIT_HOST"]
 rabbit_api_port = os.environ["RABBIT_API_PORT"]
@@ -29,6 +30,8 @@ rabbit_size = rabbit_connection.get_queue_depth(rabbit_vhost, rabbit_queue)
 workers_needed = int(int(rabbit_size)/int(scale_every_x_waiting_messages))
 if workers_needed < int(min_task_size):
     workers_needed = int(min_task_size)
+elif workers_needed > int(max_task_size):
+    workers_needed = int(max_task_size)
 
 # get current number of tasks
 response = requests.request("GET", url, headers=headers)

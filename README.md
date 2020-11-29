@@ -4,6 +4,7 @@ requires RabbitMQ’s HTTP Management API as it's the only sane way I've found t
 
 required envs:
 * MIN_TASK_SIZE
+* MAX_TASK_SIZE
 * SCALE_EVERY_X_WAITING_MESSAGES
 * RABBIT_HOST
 * RABBIT_API_PORT (example: 15672)
